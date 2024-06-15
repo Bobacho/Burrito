@@ -27,6 +27,7 @@ kotlin {
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
+            implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
@@ -67,6 +68,7 @@ android {
         compose = true
     }
     dependencies {
+        implementation("androidx.compose.material3:material3:1.1.0")
         debugImplementation(compose.uiTooling)
     }
 }
