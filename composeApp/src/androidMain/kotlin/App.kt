@@ -102,7 +102,7 @@ fun App() {
                 Spacer(modifier = Modifier.height(16.dp))
                 Card(Modifier.fillMaxWidth().padding(16.dp)){
                     IniciarSesion( onClick = {})
-                    //SinIniciarSesion( onClick = {} )
+                    SinIniciarSesion( onClick = {} )
                 }
             }
         }
