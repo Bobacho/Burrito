@@ -85,16 +85,19 @@ fun App() {
                             label = { 
                                 Text("Correo Institucional") 
                             },
-                            modifier = Modifier.weight(1f)
+                            modifier = Modifier.weight(1f),
+                            maxLines = 1,
+                            placeholder = {
+                                Text("@unmsm.edu.pe")
+                            }
                         )
-                        VerticalDivider(color = MaterialTheme.colorScheme.secondary)
-                        Text(
+                        /*Text(
                             "\n\n@unmsm.edu.pe",
                             textAlign = TextAlign.Center,
                             fontSize = 16.sp,
                             color = MaterialTheme.colorScheme.onSurface,
                             modifier = Modifier.weight(1f)
-                        )
+                        )*/
                     }
                 }
                 Spacer(modifier = Modifier.height(16.dp))
