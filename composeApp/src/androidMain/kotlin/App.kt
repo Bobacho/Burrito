@@ -7,6 +7,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.layout.*
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.runtime.*
+import androidx.compose.ui.platform.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.sp
@@ -19,12 +20,12 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-
+import android.util.Log
 
 import IniciarSesion
 import SinIniciarSesion
 import unmsm.fisi.burrito.R
-import unmsm.fisi.burrito.MenuActivity
+import unmsm.fisi.burrito.HomeActivity
 
 private val DarkColorScheme = darkColorScheme(
     primary = Color(0xFFBB86FC),
@@ -57,7 +58,8 @@ private val DarkColorScheme = darkColorScheme(
 
 @Composable
 @Preview
-fun App(context:Context?) {
+fun App() {
+    val context = LocalContext.current
     MaterialTheme(
         colorScheme = DarkColorScheme,
         typography = Typography()
@@ -107,10 +109,16 @@ fun App(context:Context?) {
                 Spacer(modifier = Modifier.height(16.dp))
                 Card(Modifier.fillMaxWidth().padding(16.dp)){
                     IniciarSesion( onClick = {
-                        context?.startActivity(Intent(context,MenuActivity::class.java))
+                        Log.d("AppComposable",context.toString())
+                        try{
+                            context.startActivity(Intent(context,HomeActivity::class.java))
+                        }
+                        catch(e:Exception){
+                            Log.e("Error:",e.toString())
+                        }
                     })
                     SinIniciarSesion( onClick = {
-                        context?.startActivity(Intent(context,MenuActivity::class.java))
+                        context.startActivity(Intent(context,HomeActivity::class.java))
                     } )
                 }
             }
