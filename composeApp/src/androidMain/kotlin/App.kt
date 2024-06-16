@@ -11,6 +11,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.dp
+import android.os.Bundle
+import android.content.Context
+import android.content.Intent
+import androidx.activity.ComponentActivity
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
@@ -20,6 +24,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import IniciarSesion
 import SinIniciarSesion
 import unmsm.fisi.burrito.R
+import unmsm.fisi.burrito.MenuActivity
 
 private val DarkColorScheme = darkColorScheme(
     primary = Color(0xFFBB86FC),
@@ -52,7 +57,7 @@ private val DarkColorScheme = darkColorScheme(
 
 @Composable
 @Preview
-fun App() {
+fun App(context:Context?) {
     MaterialTheme(
         colorScheme = DarkColorScheme,
         typography = Typography()
@@ -101,8 +106,12 @@ fun App() {
                 }
                 Spacer(modifier = Modifier.height(16.dp))
                 Card(Modifier.fillMaxWidth().padding(16.dp)){
-                    IniciarSesion( onClick = {})
-                    SinIniciarSesion( onClick = {} )
+                    IniciarSesion( onClick = {
+                        context?.startActivity(Intent(context,MenuActivity::class.java))
+                    })
+                    SinIniciarSesion( onClick = {
+                        context?.startActivity(Intent(context,MenuActivity::class.java))
+                    } )
                 }
             }
         }
